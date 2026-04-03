@@ -1,0 +1,95 @@
+# Drug name lookup for hover tooltips.
+# Key: Antibody_Name_Norm (exact match from assets.csv).
+# Fields:
+#   brand: commercial/brand name
+#   inn:   full INN of the conjugate (leave empty if identical to the antibody name)
+#   note:  provenance / context
+#
+# Expand as further drugs receive official brand or INN names.
+
+drugs:
+
+  "ibritumomab":
+    brand: "Zevalin"
+    inn: "ibritumomab tiuxetan"
+    note: >
+      FDA approved Feb 2002 (Y-90); first approved radioimmunotherapy drug.
+      Ownership: IDEC → Biogen Idec → Spectrum Pharmaceuticals (2012) →
+      Acrotech Biopharma (Jan 2019).
+
+  "tositumomab":
+    brand: "Bexxar"
+    inn: "tositumomab and iodine I 131 tositumomab"
+    note: >
+      FDA approved Jun 2003 (I-131); withdrawn from US market Feb 2014
+      due to commercial reasons (low uptake). Owned by GlaxoSmithKline.
+
+  # ── Telix Pharmaceuticals ──────────────────────────────────────────
+
+  "girentuximab":
+    program:
+      Lu-177: "TLX250"
+      Zr-89: "TLX250-CDx (Zircaix)"
+      Ac-225: "TLX252"
+
+  "J591":
+    program:
+      Lu-177: "TLX591 (rosopatamab)"
+      Ac-225: "TLX592"
+
+  # Two capitalization variants exist in assets — keep both until normalization is fixed
+  "besilesomab":
+    program:
+      Tc-99m: "Scintimun (TLX66-CDx)"
+      "In-111": "TLX66-CDx"
+
+  "Besilesomab":
+    program:
+      "Y-90": "TLX66"
+
+  # ── Actinium Pharmaceuticals ──────────────────────────────────────
+
+  "lintuzumab (HuM195)":
+    program:
+      Ac-225: "Actimab-A"
+
+  "apamistamab (BC8)":
+    program:
+      "I-131": "Iomab-B"
+
+  # ── Nordic Nanovector ─────────────────────────────────────────────
+
+  "lilotomab":
+    program:
+      Lu-177: "Betalutin"
+
+  # ── Bayer ─────────────────────────────────────────────────────────
+
+  "Anetumab":
+    program:
+      "Th-227": "BAY2287411"
+
+  "pelgifatamab":
+    program:
+      "Th-227": "BAY2315497"
+      "Ac-225": "BAY3546828"
+
+  # ── Lantheus Holdings ─────────────────────────────────────────────
+
+  "DUNP19":
+    program:
+      Lu-177: "LNTH-2403"
+
+  # ── AstraZeneca / Fusion Pharma ───────────────────────────────────
+
+  "FPI-2053":
+    program:
+      Ac-225: "AZD2068 (FPI-2068)"
+
+  "vofatamab":
+    program:
+      Ac-225: "FPI-1966"
+
+  "FPI-1175":
+    program:
+      Ac-225: "FPI-1434"

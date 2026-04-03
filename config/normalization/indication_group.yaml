@@ -1,0 +1,86 @@
+# Indication group — keyword-based classification of CT.gov Conditions field
+# Format: Group_Name: [list of case-insensitive substrings]
+# A trial matches a group if ANY of its comma-separated condition strings
+# contains ANY of the listed keywords (case-insensitive substring match).
+# A trial can match multiple groups.
+#
+# Ordering: determines the display order in the sidebar filter.
+
+Lymphoma:
+  - "lymphoma"
+  - "hodgkin"
+
+Leukemia:
+  - "leukemia"
+
+Multiple Myeloma:
+  - "myeloma"
+
+Breast Cancer:
+  - "breast"
+
+Prostate Cancer:
+  - "prostate"
+
+Colorectal Cancer:
+  - "colorectal"
+  - "colon cancer"
+  - "rectal cancer"
+
+Ovarian Cancer:
+  - "ovarian"
+  - "ovary"
+
+Lung Cancer:
+  - "lung"
+  - "nsclc"
+  - "sclc"
+
+Pancreatic Cancer:
+  - "pancreatic"
+  - "pancreas"
+
+Brain / CNS:
+  - "brain"
+  - "glioblastoma"
+  - "glioma"
+  - "neuroblastoma"
+  - "meningioma"
+  - "medulloblastoma"
+  - "central nervous system"
+
+Renal Cell Carcinoma:
+  - "renal cell"
+  - "clear cell renal"
+
+Head & Neck Cancer:
+  - "head and neck"
+  - "hnscc"
+  - "nasopharyngeal"
+
+Bladder Cancer:
+  - "bladder"
+  - "urothelial"
+
+Gastric / GI Cancer:
+  - "gastric"
+  - "stomach"
+  - "esophageal"
+  - "esophagus"
+
+Hepatic Cancer:
+  - "hepatocellular"
+  - "hepatic"
+  - "liver cancer"
+
+Thyroid Cancer:
+  - "thyroid"
+
+Melanoma:
+  - "melanoma"
+
+Sarcoma:
+  - "sarcoma"
+
+Mesothelioma:
+  - "mesothelioma"

@@ -1,0 +1,659 @@
+# Asset owner type classification for the Company Asset Portfolio chart.
+#
+# Covers every unique Asset_Owner_Norm value in assets.csv (259 non-null rows).
+# Generated 2026-03-21 via:
+#   1. Rule-based name-pattern classifier (company/academic indicators)
+#   2. Web searches for ambiguous / unknown entries
+#   3. Manual correction of false positives and compound entries
+#
+# Fields:
+#   type:    company | academic | mixed | unknown
+#   company: canonical display name shown in the portfolio chart
+#            (required for type=company or mixed; omit / null for academic/unknown)
+#   note:    optional confidence or provenance comment
+#
+# The chart includes assets where type is 'company' or 'mixed' (using the
+# extracted company name). Academic and unknown entries are excluded.
+#
+# To add a new drug: copy any entry, fill in the fields, save.
+# No Python changes needed — the chart reloads this file on each Streamlit run.
+
+owners:
+
+  # ══════════════════════════════════════════════════════════════════════
+  # ACADEMIC institutions
+  # ══════════════════════════════════════════════════════════════════════
+
+  "Affiliated Hospital of Jiangnan University":
+    type: academic
+
+  "Amsterdam UMC":
+    type: academic
+
+  "Amsterdam UMC (VUmc)":
+    type: academic
+
+  "Boushehr University of Medical Sciences":
+    type: academic
+
+  "Brigham and Women's Hospital; Dana-Farber Cancer Institute; Leiden University Medical Center":
+    type: academic
+
+  "Cancer Research Institute of Contra Costa":
+    type: academic
+
+  "Case Comprehensive Cancer Center":
+    type: academic
+
+  "Central Adelaide Local Health Network":
+    type: academic
+
+  "Centre Rene Gauducheau":
+    type: academic
+    note: >
+      Institut de Cancérologie de l'Ouest (ICO), Nantes — French regional cancer
+      centre; merged with Paul Papin centre in 2011. Confirmed academic.
+
+  "Centre hospitalier universitaire de Sherbrooke; Jules Bordet Institute; Memorial Sloan Kettering Cancer Center; The Netherlands Cancer Institute; University Medical Center Groningen; University of Alabama at Birmingham; University of Groningen; Washington University School of Medicine":
+    type: academic
+
+  "City of Hope Medical Center":
+    type: academic
+
+  "City of Hope Medical Center; Memorial Sloan Kettering Cancer Center":
+    type: academic
+
+  "Daping Hospital and the Research Institute of Surgery of the Third Military Medical University":
+    type: academic
+
+  "Dr Timothy Marr":
+    type: academic
+    note: Individual physician/researcher — not a commercial entity.
+
+  "Drexel University; Drexel University College of Medicine":
+    type: academic
+
+  "Duke University":
+    type: academic
+
+  "Fred Hutchinson Cancer Center":
+    type: academic
+
+  "Fudan University":
+    type: academic
+
+  "Garden State Cancer Center at the Center for Molecular Medicine and Immunology":
+    type: academic
+    note: Non-profit research institute affiliated with academic medical centers.
+
+  "Great Ormond Street Hospital":
+    type: academic
+
+  "Great Ormond Street Hospital / UCLH; University Hospital Southampton NHS Foundation Trust":
+    type: academic
+
+  "Great Ormond Street Hospital for Children NHS Foundation Trust":
+    type: academic
+
+  "Hoag Memorial Hospital Presbyterian; Memorial Sloan Kettering Cancer Center":
+    type: academic
+
+  "Karolinska University Hospital":
+    type: academic
+
+  "Korea Cancer Center Hospital; Korea Institute of Radiological and Medical Sciences (KIRAMS)":
+    type: academic
+    note: Both components are Korean government / public-sector research institutions.
+
+  "Ludwig Institute for Cancer Research":
+    type: academic
+
+  "Maastricht Radiation Oncology":
+    type: academic
+
+  "Masonic Cancer Center, University of Minnesota":
+    type: academic
+
+  "Masonic Cancer Center, University of Minnesota; University of Minnesota":
+    type: academic
+
+  "Memorial Sloan Kettering Cancer Center":
+    type: academic
+
+  "Memorial Sloan Kettering Cancer Center; Weill Medical College of Cornell University":
+    type: academic
+
+  "Nantes University Hospital":
+    type: academic
+
+  "National Cancer Institute (NCI)":
+    type: academic
+
+  "Not disclosed (academic \u2014 Deling Li); The First Affiliated Hospital of Xiamen University":
+    type: academic
+
+  "Peking Union Medical College Hospital":
+    type: academic
+
+  "Peking University First Hospital":
+    type: academic
+
+  "Peking University First Hospital; Ruijin Hospital":
+    type: academic
+
+  "Radboud University Medical Center":
+    type: academic
+
+  "Renji Hospital, School of Medicine, Shanghai Jiao Tong University":
+    type: academic
+
+  "RenJi Hospital":
+    type: academic
+
+  "Rockefeller University":
+    type: academic
+
+  "Roswell Park Cancer Institute":
+    type: academic
+
+  "Sidney Kimmel Comprehensive Cancer Center / NCI":
+    type: academic
+
+  "South Metropolitan Area Health Service WA":
+    type: academic
+
+  "Stanford University":
+    type: academic
+
+  "Stanford University; University of Alabama at Birmingham; Vanderbilt University Medical Center (Eben Rosenthal)":
+    type: academic
+
+  "Technische Universitat Dresden":
+    type: academic
+
+  "The First Affiliated Hospital of Soochow University":
+    type: academic
+
+  "Union Hospital, Tongji Medical College, Huazhong University of Science and Technology":
+    type: academic
+
+  "Universitair Ziekenhuis Brussel":
+    type: academic
+
+  "University of California Davis":
+    type: academic
+
+  "University of California, Davis":
+    type: academic
+
+  "University of California, San Francisco":
+    type: academic
+
+  "University of California, San Francisco / NIH VRC":
+    type: academic
+
+  "University of Lausanne Hospitals":
+    type: academic
+
+  "University of Nebraska":
+    type: academic
+
+  "University of Southampton":
+    type: academic
+
+  "University of Tennessee":
+    type: academic
+
+  "Vanderbilt-Ingram Cancer Center":
+    type: academic
+
+  "Vastra Gotaland Region / Sahlgrenska University Hospital":
+    type: academic
+
+  "Xijing Hospital":
+    type: academic
+
+  "YiHui Guan":
+    type: academic
+    note: Individual researcher — not a commercial entity.
+
+  # ══════════════════════════════════════════════════════════════════════
+  # COMPANIES
+  # ══════════════════════════════════════════════════════════════════════
+
+  "Abdera Therapeutics Inc.":
+    type: company
+    company: Abdera Therapeutics
+
+  "Abscint NV/SA":
+    type: company
+    company: Abscint
+    note: Belgian biotech (NV/SA = Belgian company form, Naamloze Vennootschap).
+
+  "Actinium Pharmaceuticals":
+    type: company
+    company: Actinium Pharmaceuticals
+
+  "Actinium Pharmaceutical Inc.; Actinium Pharmaceuticals":
+    type: company
+    company: Actinium Pharmaceuticals
+    note: Two name variants for the same entity; normalised to the later name.
+
+  "Affibody AB":
+    type: company
+    company: Affibody AB
+    note: Swedish biotech (AB = Aktiebolag); listed on Nasdaq First North.
+
+  "Affibody; Affibody AB":
+    type: company
+    company: Affibody AB
+    note: Duplicate entry; same entity as "Affibody AB".
+
+  "Agen Biomedical":
+    type: company
+    company: Agen Biomedical
+    note: Australian biotech; developed CEA-Scan antibody platform.
+
+  "Akeso Biosciences":
+    type: company
+    company: Akeso Biosciences
+
+  "Alphamab Oncology; MITRO Biotech Co., Ltd.":
+    type: company
+    company: Alphamab Oncology
+    note: Alphamab is the primary commercial developer; MITRO is a spin-out partner.
+
+  "Amgen":
+    type: company
+    company: Amgen
+
+  "Antisoma plc":
+    type: company
+    company: Antisoma
+    note: British biotech (plc); no longer active.
+
+  "AstraZeneca":
+    type: company
+    company: AstraZeneca
+
+  "Bayer":
+    type: company
+    company: Bayer
+
+  "Bayer; Biogen Idec / Spectrum Pharmaceuticals":
+    type: company
+    company: Acrotech Biopharma
+    note: >
+      Zevalin (ibritumomab tiuxetan) ownership chain: IDEC → Biogen Idec →
+      Bayer (manufacture) → Spectrum Pharmaceuticals (US rights, 2012) →
+      Acrotech Biopharma (acquired Jan 2019, $300M deal including 7 drugs).
+      Source: BioSpace / Acrotech Biopharma press release, Jan 2019.
+
+  "Bayer; Biogen (Bayer); Biogen Idec / Spectrum Pharmaceuticals; Biogen Idec/Spectrum Pharmaceuticals":
+    type: company
+    company: Acrotech Biopharma
+    note: >
+      Compound entry reflecting multi-decade ownership history of Zevalin.
+      Spectrum Pharmaceuticals held US rights from 2012; acquired by
+      Acrotech Biopharma (Aurobindo Pharma subsidiary) in Jan 2019 for $300M.
+      Source: BioSpace / Acrotech Biopharma press release, Jan 2019.
+
+  "Biogen":
+    type: company
+    company: Biogen
+
+  "BioNTech":
+    type: company
+    company: BioNTech
+
+  "Boehringer Ingelheim":
+    type: company
+    company: Boehringer Ingelheim
+
+  "Bristol Myers Squibb":
+    type: company
+    company: Bristol Myers Squibb
+
+  "Bristol-Myers Squibb":
+    type: company
+    company: Bristol Myers Squibb
+    note: Alternate hyphenated spelling; normalised to current brand name.
+
+  "China (likely Chengdu Huasun Technology)":
+    type: company
+    company: Chengdu Huasun Technology
+    note: >
+      LLM extraction was uncertain (prefix "likely"). Chengdu Huasun Technology
+      Group Inc., Ltd. is a real Chinese pharma company listed on Shenzhen Stock
+      Exchange (000790.SZ). Treat with low confidence.
+
+  "Citryll BV":
+    type: company
+    company: Citryll
+    note: Dutch biotech (BV = Besloten Vennootschap).
+
+  "Convergent Therapeutics; Weill Medical College of Cornell University":
+    type: mixed
+    company: Convergent Therapeutics
+    note: Convergent Therapeutics is the commercial developer; Cornell is academic co-investigator.
+
+  "Corixa Corporation; Corixa Corporation / GlaxoSmithKline; GlaxoSmithKline":
+    type: company
+    company: GlaxoSmithKline
+    note: >
+      Bexxar (tositumomab): Corixa was the original developer; GSK acquired Corixa
+      and marketed Bexxar until voluntary withdrawal in 2014.
+
+  "Cytogen Corporation":
+    type: company
+    company: Cytogen Corporation
+    note: US biotech; developed ProstaScint (In-111 capromab).
+
+  "Daiichi Sankyo":
+    type: company
+    company: Daiichi Sankyo
+
+  "Fujifilm Pharmaceuticals U.S.A., Inc.":
+    type: company
+    company: Fujifilm Pharmaceuticals
+
+  "Fusion Pharmaceuticals Inc.":
+    type: company
+    company: Fusion Pharmaceuticals
+
+  "GE Healthcare":
+    type: company
+    company: GE Healthcare
+
+  "Genentech":
+    type: company
+    company: Genentech
+
+  "Genzyme, a Sanofi Company":
+    type: company
+    company: Genzyme (Sanofi)
+
+  "Gilead Sciences":
+    type: company
+    company: Gilead Sciences
+
+  "Gilead Sciences; Immunomedics, Inc.":
+    type: company
+    company: Gilead Sciences
+    note: Gilead acquired Immunomedics in 2020; listed as joint entry in some records.
+
+  "GlaxoSmithKline":
+    type: company
+    company: GlaxoSmithKline
+
+  "Heidelberg Pharma AG":
+    type: company
+    company: Heidelberg Pharma AG
+
+  "Hoffmann-La Roche":
+    type: company
+    company: Roche
+    note: Alternate full name for Roche; normalised.
+
+  "Humanigen, Inc.":
+    type: company
+    company: Humanigen
+
+  "ImaginAb":
+    type: company
+    company: ImaginAb
+
+  "Immunomedics":
+    type: company
+    company: Immunomedics
+
+  "Institut de Recherches Internationales Servier":
+    type: company
+    company: Servier
+    note: >
+      R&D division of Servier, a French pharmaceutical company. "Institut de
+      Recherches" is part of Servier's corporate structure, not an independent
+      academic institute.
+
+  "Janssen Research & Development, LLC":
+    type: company
+    company: Janssen (J&J)
+
+  "Lantheus Medical Imaging":
+    type: company
+    company: Lantheus
+
+  "Merck Healthcare KGaA":
+    type: company
+    company: Merck KGaA
+    note: Merck KGaA (German) — distinct from US Merck (MSD).
+
+  "Merck KGaA":
+    type: company
+    company: Merck KGaA
+
+  "Monopar Therapeutics":
+    type: company
+    company: Monopar Therapeutics
+
+  "NanoMab Technology (UK) Limited":
+    type: company
+    company: NanoMab Technology
+    note: UK Limited company (nanobody-based radiopharmaceutical developer).
+
+  "Nihon Medi-Physics Co., Ltd.":
+    type: company
+    company: Nihon Medi-Physics
+    note: Japanese radiopharmaceutical company (Co., Ltd. = Japanese corporate form).
+
+  "Nordic Nanovector":
+    type: company
+    company: Nordic Nanovector
+    note: Norwegian biotech; listed on Oslo Stock Exchange.
+
+  "Novo Nordisk A/S":
+    type: company
+    company: Novo Nordisk
+    note: A/S = Aktieselskab, Danish company suffix.
+
+  "OncoTherapy Science":
+    type: company
+    company: OncoTherapy Science
+
+  "Orano Med LLC":
+    type: company
+    company: Orano Med
+
+  "Peregrine Pharmaceuticals":
+    type: company
+    company: Peregrine Pharmaceuticals
+
+  "Philogen S.p.A.":
+    type: company
+    company: Philogen
+    note: Italian biotech (S.p.A. = Società per Azioni).
+
+  "Radiopharm Theranostics, Ltd":
+    type: company
+    company: Radiopharm Theranostics
+
+  "Regeneron Pharmaceuticals":
+    type: company
+    company: Regeneron
+
+  "Roche/Genentech":
+    type: company
+    company: Roche/Genentech
+
+  "Sigma-Tau i.f.r. S.p.A.":
+    type: company
+    company: Sigma-Tau
+    note: Italian pharma (now part of Alfasigma).
+
+  "Sichuan Baili Pharmaceuticals / Biokin Pharmaceutical":
+    type: company
+    company: Sichuan Baili Pharmaceuticals
+    note: Both components are Chinese pharmaceutical companies.
+
+  "SmartNuclide Biopharma":
+    type: company
+    company: SmartNuclide Biopharma
+
+  "SpectronRX":
+    type: company
+    company: SpectronRX
+    note: >
+      Radiopharmaceutical CDMO and developer (Indianapolis, IN). Founded 2004;
+      supplies therapeutic and diagnostic isotopes to 29 countries. Listed here
+      as asset owner per LLM extraction — may reflect manufacturing rather than
+      IP ownership for some assets.
+
+  "Tagworks Pharmaceuticals BV":
+    type: company
+    company: Tagworks Pharmaceuticals
+    note: Dutch biotech (BV).
+
+  "Takeda":
+    type: company
+    company: Takeda
+
+  "Telix Pharmaceuticals":
+    type: company
+    company: Telix Pharmaceuticals
+
+  "UCB Pharma SA":
+    type: company
+    company: UCB Pharma
+
+  "Var2 Pharmaceuticals":
+    type: company
+    company: Var2 Pharmaceuticals
+
+  "Wyeth (now Pfizer)":
+    type: company
+    company: Pfizer (formerly Wyeth)
+
+  "Y-mAbs Therapeutics":
+    type: company
+    company: Y-mAbs Therapeutics
+
+  # ══════════════════════════════════════════════════════════════════════
+  # MIXED — commercial developer + academic co-investigator(s)
+  # Chart uses the 'company' field (commercial component only).
+  # ══════════════════════════════════════════════════════════════════════
+
+  "Actinium Pharmaceuticals; Fred Hutchinson Cancer Center":
+    type: mixed
+    company: Actinium Pharmaceuticals
+    note: Fred Hutchinson is the academic trial site.
+
+  "Attralus, Inc.; Peking University Cancer Hospital & Institute":
+    type: mixed
+    company: Attralus, Inc.
+
+  "BioNTech; Memorial Sloan Kettering Cancer Center":
+    type: mixed
+    company: BioNTech
+
+  "Bradmer Pharmaceuticals Inc.; Duke University; Duke University (Darell Bigner lab)":
+    type: mixed
+    company: Bradmer Pharmaceuticals
+
+  "Centre Ren\u00e9 Gauducheau / IBC Pharmaceuticals; Radboud University Medical Center":
+    type: mixed
+    company: IBC Pharmaceuticals
+    note: >
+      IBC Pharmaceuticals is a majority-owned subsidiary of Immunomedics (now
+      Gilead); confirmed company by web search. Centre René Gauducheau and
+      Radboud UMC are academic trial sites.
+
+  "Fortis Therapeutics, Inc.; Robert Flavell, MD, PhD / University of California, San Francisco":
+    type: mixed
+    company: Fortis Therapeutics
+
+  "Full-Life Technologies / Union Hospital, Tongji Medical College":
+    type: mixed
+    company: Full-Life Technologies
+    note: Full-Life Technologies is a clinical-stage biotech; Union Hospital is academic.
+
+  "Heidelberg Pharma AG; Ludwig Institute for Cancer Research; Telix Pharmaceuticals":
+    type: mixed
+    company: Heidelberg Pharma AG
+    note: >
+      Heidelberg Pharma AG is the primary commercial developer (ATAC technology).
+      Telix may be a trial partner. Ludwig Institute is academic.
+
+  "Helmholtz Zentrum Muenchen / ITM Oncologics":
+    type: mixed
+    company: ITM Oncologics
+    note: >
+      ITM Oncologics GmbH is a private biotech subsidiary of ITM Isotope
+      Technologies Munich SE (€878M raised). Helmholtz Zentrum München is the
+      academic partner / founding institution.
+
+  "ImaginAb; Memorial Sloan Kettering Cancer Center; National Institute of Neurological Disorders and Stroke (NINDS); Sanofi; radboudumc":
+    type: mixed
+    company: ImaginAb
+    note: >
+      ImaginAb is the primary commercial developer (CD8 cys-diabody).
+      Sanofi was a commercial co-sponsor of at least one trial.
+      MSKCC, NINDS, radboudumc are academic sites.
+
+  "Immunomedics; Nantes University Hospital":
+    type: mixed
+    company: Immunomedics
+    note: Nantes University Hospital is the academic trial site.
+
+  "Karolinska University Hospital; Roche/Genentech":
+    type: mixed
+    company: Roche/Genentech
+
+  "Memorial Sloan Kettering Cancer Center / Weill Cornell; Telix Pharmaceuticals; Weill Medical College of Cornell University":
+    type: mixed
+    company: Telix Pharmaceuticals
+
+  "Memorial Sloan Kettering Cancer Center; Memorial Sloan Kettering Cancer Center / Y-mAbs Therapeutics; Y-mAbs Therapeutics":
+    type: mixed
+    company: Y-mAbs Therapeutics
+
+  "Morphotek; National Cancer Institute (NCI)":
+    type: mixed
+    company: Morphotek (Eisai)
+    note: >
+      Morphotek Inc. is a biopharmaceutical company, wholly owned by Eisai
+      since 2007. NCI is an academic co-sponsor.
+
+  "NYU Langone Health; Radboud University Medical Center; Telix Pharmaceuticals":
+    type: mixed
+    company: Telix Pharmaceuticals
+
+  "Radboud University Medical Center; Telix Pharmaceuticals":
+    type: mixed
+    company: Telix Pharmaceuticals
+
+  "RenJi Hospital / Hengrui (SHR1920)":
+    type: mixed
+    company: Hengrui Medicine
+    note: >
+      Hengrui Medicine (江苏恒瑞医药) is a major Chinese pharmaceutical company
+      (Shanghai/Shenzhen listed). SHR1920 is their anti-HER2 antibody.
+      RenJi Hospital is the academic trial site.
+
+  "Shanghai Novamab Biopharmaceuticals Co. Ltd; The First Affiliated Hospital of Xiamen University":
+    type: mixed
+    company: Shanghai Novamab Biopharmaceuticals
+
+  # ══════════════════════════════════════════════════════════════════════
+  # UNKNOWN — could not be classified with confidence
+  # ══════════════════════════════════════════════════════════════════════
+
+  "Nihon Medi-Physics Co., Ltd.":
+    # Duplicate catch — already listed under company above; included here
+    # as a safety fallback (YAML parsers use last-defined key).
+    type: company
+    company: Nihon Medi-Physics
+
+  "Novo Nordisk A/S":
+    # Duplicate catch — already listed under company above.
+    type: company
+    company: Novo Nordisk

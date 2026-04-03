@@ -1,0 +1,18 @@
+# Manual annotations for specific trials with known data quality issues.
+#
+# Each entry is keyed by the trial/registry ID (NCT_ID or other registry ID).
+# Notes are displayed in dashboard hover tooltips and the full trial list.
+#
+# Fields:
+#   text: Short note shown in hover tooltip (1-2 lines; keep concise)
+#
+# To add a new note: copy an existing entry, fill in the fields, save.
+# Notes are applied automatically on next dashboard load (no Python changes needed).
+#
+notes:
+  NCT05376878:
+    text: >
+      Phase likely mis-registered: Cu-64-trastuzumab is an investigational
+      radiolabeled tracer; N=10 patients. Probable correct phase: 1 or 2.
+      Trastuzumab (Herceptin) is FDA-approved, which may explain the Phase 4
+      registration choice, but the radiolabeled version remains investigational.

@@ -1,0 +1,92 @@
+# Regulatory milestone events for dashboard event lines.
+#
+# Each entry is drawn as a vertical line on year-axis charts with a short
+# rotated annotation at the top.
+#
+# Fields:
+#   year:     integer — the year the event occurred
+#   label:    short annotation text (shown on chart; \n allowed for line breaks)
+#   detail:   longer description (human-readable reference; not currently shown on chart)
+#   type:     approval | withdrawal | lapse | threshold
+#             → approval   : solid green  (drug received regulatory clearance)
+#             → withdrawal : solid red    (drug removed from market)
+#             → lapse      : dotted orange (authorization lapsed / not renewed)
+#             → threshold  : dotted gray   (data quality or registry milestone)
+#   agency:   FDA | EMA | null  (informational)
+#   category: Therapeutic | Diagnostic | null  (null = applies to all charts)
+#
+# To add a new event: copy an existing entry, fill in the fields, save.
+# To adapt for another project: replace this file entirely — no Python changes needed.
+#
+# Sources / confidence:
+#   Zevalin FDA 2002    — high (multiple PubMed-indexed sources)
+#   Bexxar FDA 2003     — high (Wikipedia + PMC + policy documents)
+#   Zevalin EMA 2004    — high (EMA EPAR EMEA/H/C/000511)
+#   Bexxar withdrawn    — high (GSK press release Feb 2014)
+#   Zevalin EMA lapsed  — high (EMA, lapsed July 2024)
+#   CT.gov 2000         — high (FDA Modernization Act 1997 → mandatory from 2000)
+
+events:
+
+  # ── CT.gov data quality threshold ──────────────────────────────────────
+  - year: 2000
+    type: threshold
+    label: "CT.gov mandatory"
+    detail: >
+      ClinicalTrials.gov mandatory registration became effective for FDA-regulated
+      trials from 2000 (FDAMA 1997 mandate). Data before 2000 reflects selective
+      retrospective registration only and is sparse.
+    agency: null
+    category: null
+
+  # ── Therapeutic RIT — approvals ─────────────────────────────────────────
+  - year: 2002
+    type: approval
+    label: "Zevalin FDA"
+    detail: >
+      Zevalin (ibritumomab tiuxetan, 90Y, anti-CD20 IgG1) — first approved
+      radioimmunotherapy agent. FDA approved Feb 19, 2002 (accelerated approval)
+      for relapsed/refractory follicular B-cell NHL. Label expanded Sep 2009.
+      BLA 125019.
+    agency: FDA
+    category: Therapeutic
+
+  - year: 2003
+    type: approval
+    label: "Bexxar FDA"
+    detail: >
+      Bexxar (tositumomab + 131I-tositumomab, anti-CD20 IgG2a) — FDA approved
+      Jun 2003 for relapsed/refractory CD20+ NHL with individualized dosimetry.
+      BLA 125011.
+    agency: FDA
+    category: Therapeutic
+
+  - year: 2004
+    type: approval
+    label: "Zevalin EMA"
+    detail: >
+      Zevalin (ibritumomab tiuxetan, 90Y) — EMA approved 2004.
+      EMA product number EMEA/H/C/000511.
+    agency: EMA
+    category: Therapeutic
+
+  # ── Therapeutic RIT — withdrawals & lapses ──────────────────────────────
+  - year: 2014
+    type: withdrawal
+    label: "Bexxar withdrawn"
+    detail: >
+      Bexxar (tositumomab, 131I) — manufacturing discontinued by GSK Feb 2014.
+      Declining use: fewer than 75 patients in 2012. Marketing approval formally
+      withdrawn.
+    agency: FDA
+    category: Therapeutic
+
+  - year: 2024
+    type: withdrawal
+    label: "Zevalin EMA lapsed"
+    detail: >
+      Zevalin EMA marketing authorization lapsed July 2024. Not marketed in the EU
+      for more than 3 consecutive years. FDA approval technically still valid
+      (rarely used commercially).
+    agency: EMA
+    category: Therapeutic
