@@ -378,7 +378,7 @@ def build_trials_by_year_category(df: pd.DataFrame) -> go.Figure:
             secondary_y=False,
         )
 
-    _NOVELTY_COLOR = "#1F77B4"
+    _NOVELTY_COLOR = "black"
 
     # Novelty line on secondary y-axis
     fig.add_trace(
@@ -2127,7 +2127,7 @@ def build_industry_sponsorship_trend(
             x=years,
             y=pct_rolling.round(1).tolist(),
             mode="lines",
-            line=dict(color=_SPONSOR_GROUP_COLORS["Industry"], width=2.5, dash="dash"),
+            line=dict(color="black", width=2.5, dash="dash"),
             hovertemplate=(
                 "<b>%{x}</b><br>"
                 f"% Industry ({rolling_window}y avg): <b>%{{y:.1f}}%</b><extra></extra>"
@@ -2379,8 +2379,8 @@ def build_alpha_emitter_adoption(
             x=periods,
             y=pct_of_ther.round(1).tolist(),
             mode="lines+markers",
-            line=dict(color="#D62728", width=2.5, dash="dash"),
-            marker=dict(color="#D62728", size=7),
+            line=dict(color="black", width=2.5, dash="dash"),
+            marker=dict(color="black", size=7),
             hovertemplate=(
                 "<b>%{x}</b><br>"
                 "% of therapeutic trials: <b>%{y:.1f}%</b><extra></extra>"
@@ -2732,15 +2732,13 @@ def build_isotope_indication_heatmap(
             line=dict(color="#444444", width=1.5, dash="dash"),
         )
         # Group label annotations in the left margin (paper x = 0 is figure left edge)
-        mid_alpha = (_n_alpha - 1) / 2.0
-        mid_beta  = _n_alpha + (_n_beta - 1) / 2.0
-        for mid_y, label, color in [
-            (mid_alpha, "α emitters", "#b03030"),
-            (mid_beta,  "β emitters", "#1a5fa8"),
+        for y_pos, yanchor, label, color in [
+            (_group_separator_y + 0.1, "bottom", "α emitters", "#b03030"),
+            (_group_separator_y - 0.1, "top",    "β emitters", "#1a5fa8"),
         ]:
             fig.add_annotation(
                 x=0.0, xref="paper", xanchor="left",
-                y=mid_y, yref="y",
+                y=y_pos, yref="y", yanchor=yanchor,
                 text=f"<b>{label}</b>",
                 showarrow=False,
                 font=dict(size=10, color=color),
@@ -2919,15 +2917,13 @@ def build_isotope_indication_heatmap_assets(
             y0=_group_separator_y, y1=_group_separator_y, yref="y",
             line=dict(color="#444444", width=1.5, dash="dash"),
         )
-        mid_alpha = (_n_alpha - 1) / 2.0
-        mid_beta  = _n_alpha + (_n_beta - 1) / 2.0
-        for mid_y, label, color in [
-            (mid_alpha, "α emitters", "#b03030"),
-            (mid_beta,  "β emitters", "#1a5fa8"),
+        for y_pos, yanchor, label, color in [
+            (_group_separator_y + 0.1, "bottom", "α emitters", "#b03030"),
+            (_group_separator_y - 0.1, "top",    "β emitters", "#1a5fa8"),
         ]:
             fig.add_annotation(
                 x=0.0, xref="paper", xanchor="left",
-                y=mid_y, yref="y",
+                y=y_pos, yref="y", yanchor=yanchor,
                 text=f"<b>{label}</b>",
                 showarrow=False,
                 font=dict(size=10, color=color),
@@ -3532,7 +3528,26 @@ def build_pk_stacked_bar(df: pd.DataFrame, grouping: str = "family") -> go.Figur
             x=iso_labels,
             y=pivot[grp].tolist(),
             marker_color=color_lists[grp],
+            showlegend=False,
             hovertemplate=f"<b>%{{x}}</b><br>{grp}: %{{y:.0f}}<extra></extra>",
+        ))
+
+    # Legend: two sets of boxes — one for therapeutic (green), one for diagnostic (orange)
+    for grp in grp_ordered:
+        fig.add_trace(go.Scatter(
+            name=grp, x=[None], y=[None], mode="markers",
+            marker=dict(symbol="square", size=10, color=thera_colors.get(grp, "#66C2A5")),
+            legendgroup="thera",
+            legendgrouptitle_text="Therapeutic isotopes",
+            showlegend=True,
+        ))
+    for grp in grp_ordered:
+        fig.add_trace(go.Scatter(
+            name=grp, x=[None], y=[None], mode="markers",
+            marker=dict(symbol="square", size=10, color=diag_colors.get(grp, "#FC8D62")),
+            legendgroup="diag",
+            legendgrouptitle_text="Diagnostic isotopes",
+            showlegend=True,
         ))
 
     fig.update_layout(
